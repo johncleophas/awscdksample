@@ -1,0 +1,264 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "constructs.Construct",
+          "version": "10.0.0"
+        }
+      },
+      "TestApiMethodCdkStack": {
+        "id": "TestApiMethodCdkStack",
+        "path": "TestApiMethodCdkStack",
+        "children": {
+          "testcdk-api": {
+            "id": "testcdk-api",
+            "path": "TestApiMethodCdkStack/testcdk-api",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "TestApiMethodCdkStack/testcdk-api/Default",
+                "children": {
+                  "testCdk": {
+                    "id": "testCdk",
+                    "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk",
+                    "children": {
+                      "Resource": {
+                        "id": "Resource",
+                        "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/Resource",
+                        "attributes": {
+                          "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
+                          "aws:cdk:cloudformation:props": {
+                            "parentId": "4ghiuuxulg",
+                            "pathPart": "testCdk",
+                            "restApiId": "wkx2h9ajde"
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
+                          "version": "2.31.0"
+                        }
+                      },
+                      "POST": {
+                        "id": "POST",
+                        "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST",
+                        "children": {
+                          "ApiPermission.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk": {
+                            "id": "ApiPermission.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk",
+                            "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": "arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda",
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:eu-west-1:000000000000:wkx2h9ajde/*/POST/testCdk"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                              "version": "2.31.0"
+                            }
+                          },
+                          "ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk": {
+                            "id": "ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk",
+                            "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                              "aws:cdk:cloudformation:props": {
+                                "action": "lambda:InvokeFunction",
+                                "functionName": "arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda",
+                                "principal": "apigateway.amazonaws.com",
+                                "sourceArn": {
+                                  "Fn::Join": [
+                                    "",
+                                    [
+                                      "arn:",
+                                      {
+                                        "Ref": "AWS::Partition"
+                                      },
+                                      ":execute-api:eu-west-1:000000000000:wkx2h9ajde/test-invoke-stage/POST/testCdk"
+                                    ]
+                                  ]
+                                }
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
+                              "version": "2.31.0"
+                            }
+                          },
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "POST",
+                                "resourceId": {
+                                  "Ref": "testcdkapitestCdk1EA70C1A"
+                                },
+                                "restApiId": "wkx2h9ajde",
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "AWS_PROXY",
+                                  "uri": {
+                                    "Fn::Join": [
+                                      "",
+                                      [
+                                        "arn:",
+                                        {
+                                          "Ref": "AWS::Partition"
+                                        },
+                                        ":apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda/invocations"
+                                      ]
+                                    ]
+                                  },
+                                  "integrationHttpMethod": "POST"
+                                },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200"
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.31.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.31.0"
+                        }
+                      },
+                      "OPTIONS": {
+                        "id": "OPTIONS",
+                        "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/OPTIONS",
+                        "children": {
+                          "Resource": {
+                            "id": "Resource",
+                            "path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/OPTIONS/Resource",
+                            "attributes": {
+                              "aws:cdk:cloudformation:type": "AWS::ApiGateway::Method",
+                              "aws:cdk:cloudformation:props": {
+                                "httpMethod": "OPTIONS",
+                                "resourceId": {
+                                  "Ref": "testcdkapitestCdk1EA70C1A"
+                                },
+                                "restApiId": "wkx2h9ajde",
+                                "authorizationType": "NONE",
+                                "integration": {
+                                  "type": "MOCK",
+                                  "requestTemplates": {
+                                    "application/json": "{ statusCode: 200 }"
+                                  },
+                                  "integrationResponses": [
+                                    {
+                                      "statusCode": "200",
+                                      "responseParameters": {
+                                        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Cookie,Info'",
+                                        "method.response.header.Access-Control-Allow-Origin": "'*'",
+                                        "method.response.header.Access-Control-Allow-Methods": "'POST,GET,OPTIONS'"
+                                      }
+                                    }
+                                  ]
+                                },
+                                "methodResponses": [
+                                  {
+                                    "statusCode": "200",
+                                    "responseParameters": {
+                                      "method.response.header.Access-Control-Allow-Headers": true,
+                                      "method.response.header.Access-Control-Allow-Origin": true,
+                                      "method.response.header.Access-Control-Allow-Methods": true
+                                    }
+                                  }
+                                ]
+                              }
+                            },
+                            "constructInfo": {
+                              "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
+                              "version": "2.31.0"
+                            }
+                          }
+                        },
+                        "constructInfo": {
+                          "fqn": "aws-cdk-lib.aws_apigateway.Method",
+                          "version": "2.31.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "aws-cdk-lib.aws_apigateway.Resource",
+                      "version": "2.31.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
+                  "version": "2.31.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_apigateway.RestApiBase",
+              "version": "2.31.0"
+            }
+          },
+          "testcdk-function": {
+            "id": "testcdk-function",
+            "path": "TestApiMethodCdkStack/testcdk-function",
+            "constructInfo": {
+              "fqn": "aws-cdk-lib.aws_lambda.FunctionBase",
+              "version": "2.31.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "TestApiMethodCdkStack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "TestApiMethodCdkStack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "aws-cdk-lib.CfnResource",
+                  "version": "2.31.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "constructs.Construct",
+              "version": "10.0.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "aws-cdk-lib.Stack",
+          "version": "2.31.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "aws-cdk-lib.App",
+      "version": "2.31.0"
+    }
+  }
+}

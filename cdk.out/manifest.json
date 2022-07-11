@@ -1,0 +1,94 @@
+{
+  "version": "20.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "TestApiMethodCdkStack.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "TestApiMethodCdkStack.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "TestApiMethodCdkStack": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://000000000000/eu-west-1",
+      "properties": {
+        "templateFile": "TestApiMethodCdkStack.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-deploy-role-000000000000-eu-west-1",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-cfn-exec-role-000000000000-eu-west-1",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-000000000000-eu-west-1/fde9c3b86c6f64ea3031aecf59d116df85f4618f0524ea33e77416fd37ff5ea0.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "TestApiMethodCdkStack.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-lookup-role-000000000000-eu-west-1",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "TestApiMethodCdkStack.assets"
+      ],
+      "metadata": {
+        "/TestApiMethodCdkStack/testcdk-api/Default/testCdk/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapitestCdk1EA70C1A"
+          }
+        ],
+        "/TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapitestCdkPOSTApiPermissionTestApiMethodCdkStacktestcdkapi09B44309POSTtestCdkA5E6C66B"
+          }
+        ],
+        "/TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapitestCdkPOSTApiPermissionTestTestApiMethodCdkStacktestcdkapi09B44309POSTtestCdkB9B444A4"
+          }
+        ],
+        "/TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapitestCdkPOSTB764D331"
+          }
+        ],
+        "/TestApiMethodCdkStack/testcdk-api/Default/testCdk/OPTIONS/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "testcdkapitestCdkOPTIONS6F42C825"
+          }
+        ],
+        "/TestApiMethodCdkStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/TestApiMethodCdkStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/TestApiMethodCdkStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "TestApiMethodCdkStack"
+    }
+  }
+}
