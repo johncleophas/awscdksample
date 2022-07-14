@@ -1,0 +1,20 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "7681d7c860ad95076195492e70437ca5685987a64c20a5eebc112a554158f9ae": {
+      "source": {
+        "path": "TestApiGatewayCdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "000000000000-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-000000000000-eu-west-1",
+          "objectKey": "7681d7c860ad95076195492e70437ca5685987a64c20a5eebc112a554158f9ae.json",
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-west-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

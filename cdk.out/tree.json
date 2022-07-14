@@ -9,7 +9,7 @@
         "path": "Tree",
         "constructInfo": {
           "fqn": "constructs.Construct",
-          "version": "10.0.0"
+          "version": "10.1.43"
         }
       },
       "TestApiMethodCdkStack": {
@@ -34,14 +34,14 @@
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::ApiGateway::Resource",
                           "aws:cdk:cloudformation:props": {
-                            "parentId": "4ghiuuxulg",
+                            "parentId": "61xvzkvlg9",
                             "pathPart": "testCdk",
-                            "restApiId": "wkx2h9ajde"
+                            "restApiId": "l2ych8ebeh"
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.CfnResource",
-                          "version": "2.31.0"
+                          "version": "2.31.1"
                         }
                       },
                       "POST": {
@@ -65,7 +65,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":execute-api:eu-west-1:000000000000:wkx2h9ajde/*/POST/testCdk"
+                                      ":execute-api:eu-west-1:000000000000:l2ych8ebeh/*/POST/testCdk"
                                     ]
                                   ]
                                 }
@@ -73,7 +73,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.31.0"
+                              "version": "2.31.1"
                             }
                           },
                           "ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk": {
@@ -93,7 +93,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":execute-api:eu-west-1:000000000000:wkx2h9ajde/test-invoke-stage/POST/testCdk"
+                                      ":execute-api:eu-west-1:000000000000:l2ych8ebeh/test-invoke-stage/POST/testCdk"
                                     ]
                                   ]
                                 }
@@ -101,7 +101,7 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_lambda.CfnPermission",
-                              "version": "2.31.0"
+                              "version": "2.31.1"
                             }
                           },
                           "Resource": {
@@ -114,7 +114,7 @@
                                 "resourceId": {
                                   "Ref": "testcdkapitestCdk1EA70C1A"
                                 },
-                                "restApiId": "wkx2h9ajde",
+                                "restApiId": "l2ych8ebeh",
                                 "authorizationType": "NONE",
                                 "integration": {
                                   "type": "AWS_PROXY",
@@ -141,13 +141,13 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.31.0"
+                              "version": "2.31.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.31.0"
+                          "version": "2.31.1"
                         }
                       },
                       "OPTIONS": {
@@ -164,7 +164,7 @@
                                 "resourceId": {
                                   "Ref": "testcdkapitestCdk1EA70C1A"
                                 },
-                                "restApiId": "wkx2h9ajde",
+                                "restApiId": "l2ych8ebeh",
                                 "authorizationType": "NONE",
                                 "integration": {
                                   "type": "MOCK",
@@ -196,31 +196,31 @@
                             },
                             "constructInfo": {
                               "fqn": "aws-cdk-lib.aws_apigateway.CfnMethod",
-                              "version": "2.31.0"
+                              "version": "2.31.1"
                             }
                           }
                         },
                         "constructInfo": {
                           "fqn": "aws-cdk-lib.aws_apigateway.Method",
-                          "version": "2.31.0"
+                          "version": "2.31.1"
                         }
                       }
                     },
                     "constructInfo": {
                       "fqn": "aws-cdk-lib.aws_apigateway.Resource",
-                      "version": "2.31.0"
+                      "version": "2.31.1"
                     }
                   }
                 },
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.aws_apigateway.ResourceBase",
-                  "version": "2.31.0"
+                  "version": "2.31.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_apigateway.RestApiBase",
-              "version": "2.31.0"
+              "version": "2.31.1"
             }
           },
           "testcdk-function": {
@@ -228,7 +228,7 @@
             "path": "TestApiMethodCdkStack/testcdk-function",
             "constructInfo": {
               "fqn": "aws-cdk-lib.aws_lambda.FunctionBase",
-              "version": "2.31.0"
+              "version": "2.31.1"
             }
           },
           "CDKMetadata": {
@@ -240,25 +240,25 @@
                 "path": "TestApiMethodCdkStack/CDKMetadata/Default",
                 "constructInfo": {
                   "fqn": "aws-cdk-lib.CfnResource",
-                  "version": "2.31.0"
+                  "version": "2.31.1"
                 }
               }
             },
             "constructInfo": {
               "fqn": "constructs.Construct",
-              "version": "10.0.0"
+              "version": "10.1.43"
             }
           }
         },
         "constructInfo": {
           "fqn": "aws-cdk-lib.Stack",
-          "version": "2.31.0"
+          "version": "2.31.1"
         }
       }
     },
     "constructInfo": {
       "fqn": "aws-cdk-lib.App",
-      "version": "2.31.0"
+      "version": "2.31.1"
     }
   }
 }

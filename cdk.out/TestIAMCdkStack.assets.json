@@ -1,0 +1,20 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "e67ce601e41f150bf3d203e8abb93f3949098aea8824f59c0bf89fbba64cb550": {
+      "source": {
+        "path": "TestIAMCdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "000000000000-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-000000000000-eu-west-1",
+          "objectKey": "e67ce601e41f150bf3d203e8abb93f3949098aea8824f59c0bf89fbba64cb550.json",
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-west-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

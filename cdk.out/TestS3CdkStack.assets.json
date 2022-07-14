@@ -1,0 +1,20 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "504c9ff9d43ca759831f7c6d29432248eebdfd7b45a8adc6df0df861aedefa52": {
+      "source": {
+        "path": "TestS3CdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "000000000000-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-000000000000-eu-west-1",
+          "objectKey": "504c9ff9d43ca759831f7c6d29432248eebdfd7b45a8adc6df0df861aedefa52.json",
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-west-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

@@ -1,0 +1,197 @@
+{
+ "Resources": {
+  "testcdkapiF7BB193A": {
+   "Type": "AWS::ApiGateway::RestApi",
+   "Properties": {
+    "Name": "testcdk-api",
+    "Policy": {
+     "Statement": [
+      {
+       "Action": "execute-api:Invoke",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": "execute-api:/*"
+      }
+     ],
+     "Version": "2012-10-17"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/testcdk-api/Resource"
+   }
+  },
+  "testcdkapiCloudWatchRoleE16C777C": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "apigateway.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/testcdk-api/CloudWatchRole/Resource"
+   }
+  },
+  "testcdkapiAccountDF5C6F49": {
+   "Type": "AWS::ApiGateway::Account",
+   "Properties": {
+    "CloudWatchRoleArn": {
+     "Fn::GetAtt": [
+      "testcdkapiCloudWatchRoleE16C777C",
+      "Arn"
+     ]
+    }
+   },
+   "DependsOn": [
+    "testcdkapiF7BB193A"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/testcdk-api/Account"
+   }
+  },
+  "testcdkapiOPTIONSC71B9AD1": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Fn::GetAtt": [
+      "testcdkapiF7BB193A",
+      "RootResourceId"
+     ]
+    },
+    "RestApiId": {
+     "Ref": "testcdkapiF7BB193A"
+    },
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Cookie,Info'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'POST,GET,OPTIONS'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "200"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/testcdk-api/Default/OPTIONS/Resource"
+   }
+  },
+  "testcdkC1C5B8920f066908ce1f2e5dac1489092dae7458": {
+   "Type": "AWS::ApiGateway::Deployment",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "testcdkapiF7BB193A"
+    }
+   },
+   "DependsOn": [
+    "testcdkapiOPTIONSC71B9AD1"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/testcdk/Resource"
+   }
+  },
+  "stagedev14466AEF": {
+   "Type": "AWS::ApiGateway::Stage",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "testcdkapiF7BB193A"
+    },
+    "DeploymentId": {
+     "Ref": "testcdkC1C5B8920f066908ce1f2e5dac1489092dae7458"
+    },
+    "StageName": "dev"
+   },
+   "DependsOn": [
+    "testcdkapiAccountDF5C6F49"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/stage-dev/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/02OTw+CMAzFP4v3UQTi0QOCRzmg8WrmqDj5s2UbEkL23d2QA+nhvf7a9DWGJIJoR0cdsKoJWv6E+Wooa4hDj5lKXlODI51gLlGbVHKSvfqNTRkTQ2+IQ2JQDE9UI7mgeYvKj1eXo2zF1KFbdHDTuawaPVuMJZx2Lkm0C/Nq7Rq4XLckF6ZAEyYQQXwIoTjfMqEwlTK4o9Jc9Mevm4UR7H3tPprzQLkHeYdQ/vUH6YnW9vQAAAA="
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiGatewayCdkStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

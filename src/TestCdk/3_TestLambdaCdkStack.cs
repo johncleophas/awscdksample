@@ -25,6 +25,8 @@ namespace TestCdk
                 Tracing = Tracing.ACTIVE,
             });
 
+            //Alias is not support by LocalStack free edition
+
             //lambda.AddAlias("live", new AliasOptions()
             //{
             //    Description = "This alias is used to map the desired version to api gateway",

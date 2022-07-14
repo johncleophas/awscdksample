@@ -12,8 +12,8 @@ namespace TestCdk
     {
         internal TestApiMethodCdkStack(Construct scope, string id, IStackProps props = null) : base(scope, id, props)
         {
-            var restApiId = "wkx2h9ajde";
-            var rootResourceId = "4ghiuuxulg";
+            var restApiId = "l2ych8ebeh";
+            var rootResourceId = "61xvzkvlg9";
 
             var api = RestApi.FromRestApiAttributes(this, $"testcdk-api", new RestApiAttributes()
             {

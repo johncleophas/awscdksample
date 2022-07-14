@@ -25,7 +25,7 @@ namespace TestCdk
             var restApiProps = new RestApiProps()
             {
                 RestApiName = "testcdk-api",
-                CloudWatchRole = false,
+                CloudWatchRole = true,
                 Deploy = false,
                 DefaultCorsPreflightOptions = new CorsOptions()
                 {

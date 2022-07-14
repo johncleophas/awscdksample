@@ -1,0 +1,179 @@
+{
+ "Resources": {
+  "testcdkapitestCdk1EA70C1A": {
+   "Type": "AWS::ApiGateway::Resource",
+   "Properties": {
+    "ParentId": "61xvzkvlg9",
+    "PathPart": "testCdk",
+    "RestApiId": "l2ych8ebeh"
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/Resource"
+   }
+  },
+  "testcdkapitestCdkPOSTApiPermissionTestApiMethodCdkStacktestcdkapi09B44309POSTtestCdkA5E6C66B": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": "arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda",
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-1:000000000000:l2ych8ebeh/*/POST/testCdk"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk"
+   }
+  },
+  "testcdkapitestCdkPOSTApiPermissionTestTestApiMethodCdkStacktestcdkapi09B44309POSTtestCdkB9B444A4": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": "arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda",
+    "Principal": "apigateway.amazonaws.com",
+    "SourceArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":execute-api:eu-west-1:000000000000:l2ych8ebeh/test-invoke-stage/POST/testCdk"
+      ]
+     ]
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/ApiPermission.Test.TestApiMethodCdkStacktestcdkapi09B44309.POST..testCdk"
+   }
+  },
+  "testcdkapitestCdkPOSTB764D331": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "POST",
+    "ResourceId": {
+     "Ref": "testcdkapitestCdk1EA70C1A"
+    },
+    "RestApiId": "l2ych8ebeh",
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationHttpMethod": "POST",
+     "Type": "AWS_PROXY",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":apigateway:eu-west-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-west-1:000000000000:function:testcdklambda/invocations"
+       ]
+      ]
+     }
+    },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/POST/Resource"
+   }
+  },
+  "testcdkapitestCdkOPTIONS6F42C825": {
+   "Type": "AWS::ApiGateway::Method",
+   "Properties": {
+    "HttpMethod": "OPTIONS",
+    "ResourceId": {
+     "Ref": "testcdkapitestCdk1EA70C1A"
+    },
+    "RestApiId": "l2ych8ebeh",
+    "AuthorizationType": "NONE",
+    "Integration": {
+     "IntegrationResponses": [
+      {
+       "ResponseParameters": {
+        "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Cookie,Info'",
+        "method.response.header.Access-Control-Allow-Origin": "'*'",
+        "method.response.header.Access-Control-Allow-Methods": "'POST,GET,OPTIONS'"
+       },
+       "StatusCode": "200"
+      }
+     ],
+     "RequestTemplates": {
+      "application/json": "{ statusCode: 200 }"
+     },
+     "Type": "MOCK"
+    },
+    "MethodResponses": [
+     {
+      "ResponseParameters": {
+       "method.response.header.Access-Control-Allow-Headers": true,
+       "method.response.header.Access-Control-Allow-Origin": true,
+       "method.response.header.Access-Control-Allow-Methods": true
+      },
+      "StatusCode": "200"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/testcdk-api/Default/testCdk/OPTIONS/Resource"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WMwQ6CMAyGn8X7KALx6AFRbxKDxqspUHUC27INiVl4d0dIjKaHfv/X9I8hiSBa4GCCqm6ClpfgTharhnl1daj4HS0N+AZXkLGp4hs0xDzLXlf0F1h2E18+kH3IelIzjazFrqwRnFdH0h03hkvB9r2orIepaRx/K0a2lTYnGyYQQbwKId+dM6kpVSq4kJ6+1y9/CyNYTrN4Gs4D3QvLO4Ji3h9Oka2b4AAAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "TestApiMethodCdkStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

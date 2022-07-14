@@ -1,0 +1,56 @@
+local stack presentation notes
+
+requirements ..
+
+localstack cli installed
+
+aws cli installed
+aws cdk installed
+
+awslocal installed
+
+cdklocal installed
+npm install -g aws-cdk-local aws-cdk
+https://www.npmjs.com/package/aws-cdk-local
+https://github.com/localstack/aws-cdk-local
+
+localstack account
+
+https://aws.amazon.com/cdk/
+
+
+
+https://app.localstack.cloud/status
+
+
+1.) start localstack with docker
+create docker yaml file
+
+docker-compose up
+
+2.) bootstrap the environment
+cdklocal bootstrap
+
+3.) Create cdk project
+cdklocal init app --language=csharp
+
+4.) Create stack for s3 and deploy
+cdklocal deploy --all -v
+
+5.) Create stack for lambda exection role
+
+6.) Push lambda package to s3
+
+7.) Create lambda in localstack
+
+8.) Create rest API on gateway
+
+9.) Get restAPI Id and root resource id
+
+	Update the POST method 
+	
+10.) Generate POST in Postman
+http://l2ych8ebeh.execute-api.localhost.localstack.cloud:4566/dev/testCdk	
+
+	
+	

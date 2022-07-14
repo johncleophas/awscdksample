@@ -18,8 +18,7 @@ public class Function
     public APIGatewayProxyResponse FunctionHandler(APIGatewayProxyRequest request, ILambdaContext context)
     {
         var input = Newtonsoft.Json.JsonConvert.DeserializeObject<RequestBody>(request.Body);
-
-        input = null;
+        
         return new APIGatewayProxyResponse() { Body = Newtonsoft.Json.JsonConvert.SerializeObject(input), StatusCode = 200 };
     }
 }

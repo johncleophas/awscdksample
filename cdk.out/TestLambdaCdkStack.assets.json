@@ -1,0 +1,20 @@
+{
+  "version": "20.0.0",
+  "files": {
+    "6c062378840cb53356ab1670b6c731dd23d70151226906e33f4431fe6f20af7c": {
+      "source": {
+        "path": "TestLambdaCdkStack.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "000000000000-eu-west-1": {
+          "bucketName": "cdk-hnb659fds-assets-000000000000-eu-west-1",
+          "objectKey": "6c062378840cb53356ab1670b6c731dd23d70151226906e33f4431fe6f20af7c.json",
+          "region": "eu-west-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::000000000000:role/cdk-hnb659fds-file-publishing-role-000000000000-eu-west-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
